@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
 import Overview from './components/Overview';
 
 class App extends Component {
@@ -6,7 +7,10 @@ class App extends Component {
     super();
 
     this.state = {
-      task: {text: ''},
+      task: {
+        text: '',
+        id: uniqid()
+      },
       taskArray: []
     };
   }
@@ -14,7 +18,8 @@ class App extends Component {
   handleChange = (event) => {
     this.setState({
       task: {
-        text: event.target.value
+        text: event.target.value,
+        id: this.state.task.id
       }
     });
   };
@@ -24,7 +29,8 @@ class App extends Component {
     this.setState({
       taskArray: [...this.state.taskArray, this.state.task],
       task: {
-        text: ''
+        text: '',
+        id: uniqid()
       }
     });
   };
