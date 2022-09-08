@@ -39,6 +39,7 @@ class App extends Component {
           <input type='text' id='taskInput' value={task.text} onChange={this.handleChange} />
           <button type='submit'>Add Task</button>
         </form>
+        <Overview tasks={taskArray} />
       </div>
     );
   }
